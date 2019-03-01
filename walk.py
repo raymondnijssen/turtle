@@ -3,6 +3,9 @@ import turtle
 # create turtle
 t = turtle.Turtle()
 
+t.shape('turtle')
+t.shapesize(5, 5, 5)
+
 t.begin_fill()
 t.pensize(10)
 # set colors
