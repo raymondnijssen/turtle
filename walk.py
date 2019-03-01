@@ -19,10 +19,14 @@ for j in range(8):
 
 
 t.pensize(0)
-t.forward(40)
+t.forward(50)
+t.right(90)
+t.forward(20)
+t.left(90)
+
 t.pensize(10)
 
-colors = ['green']
+colors = ['darkgreen']
 t.begin_fill()
 t.color(colors[0])
 t.left(90)   
