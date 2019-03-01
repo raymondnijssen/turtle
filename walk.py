@@ -17,4 +17,4 @@ for j in range(8):
 
 t.end_fill()
 
-turtle.mainloop()
+#turtle.mainloop()
