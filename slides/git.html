@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introduction to git</title>
+
+		<meta name="description" content="A git introduction workshop">
+		<meta name="author" content="Raymond Nijssen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+
+		<style type="text/css" media="screen">
+
+		.reveal pre {
+			background-color: rgba(50, 0, 50, 0.9);
+			font-size: 0.40em;
+
+		}
+
+		</style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h2>Introduction to git</h2>
+					<img src="img/git_logo.png" width="30%"/>
+					<p>1 March 2019</p>
+					<h3>IHE - Delft</h2>
+					<p>Raymond Nijssen, Terglobo</p>
+					<a href="mailto:r.nijssen@terglobo.nl">r.nijssen@terglobo.nl</a>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Introduction to me</h2>
+						<p class="fragment">Raymond</p>
+						<p class="fragment">Den Bosch</p>
+						<p class="fragment">GIS Freelancer</p>
+						<p class="fragment">Open source developer</p>
+						<p class="fragment">Python, SQL, JS, C++, ...</p>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Introduction to you!</h2>
+						<p class="fragment">Name?</p>
+						<p class="fragment">Job?</p>
+						<p class="fragment">Git experience so far?</p>
+						<p class="fragment">Anything you'd like to add?</p>
+					</section>
+				</section>
+
+
+				<section>
+					<h2>Time schedule</h2>
+					<table>
+						<tbody>
+							<tr><td>09:30</td><td>Introduction</td></tr>
+							<tr><td>10:00</td><td>Distributed <b style="color:#f44d27">Version Control</b></td></tr>
+							<tr><td>10:30</td><td>Hands on</td></tr>
+							<tr><td>12:30</td><td><b style="color:#666666">lunch break</b></td></tr>
+							<tr><td>13:30</td><td><b style="color:#f44d27">Distributed</b> Version Control</td></tr>
+							<tr><td>14:00</td><td>Hands on</td></tr>
+							<tr><td>16:00</td><td>Questions, discussions and wrap up</td></tr>
+							<tr><td>17:00</td><td><b style="color:#666666">weekend</b></td></tr>
+						</tbody>
+					</table>
+				</section>
+
+
+				<section>
+					<h1>git</h1>
+					<p>A <b style="color:#f44d27">distributed version-control system</b> for tracking changes in source code during software development.</p>
+					<p>It is designed for <b style="color:#f44d27">coordinating work among programmers</b>, but it can be used to track changes in any set of files.</p>
+					<p>Its goals include <b style="color:#f44d27">speed</b>, data <b style="color:#f44d27">integrity</b>, and support for <b style="color:#f44d27">distributed, non-linear workflows</b>.</p>
+					<p>
+						<small>Download it at <a href="https://git-scm.org">git-scm.org</a></small>
+					</p>
+				</section>
+
+
+				<section>
+					<h2>Version Control</h2>
+					<img src="img/simply_explained_version_control.jpeg" width="50%"/>
+				</section>
+
+
+				<section>
+					<h2>Why Version Control?</h2>
+					<p class="fragment">Maintain multiple versions</p>
+					<p class="fragment">Revert mistakes</p>
+					<p class="fragment">View history</p>
+					<p class="fragment">Find code differences</p>
+					<p class="fragment">Know who did what</p>
+				</section>
+
+
+				<section>
+					<h2>Version Control Systems</h2>
+					<p>git, svn, bitkeeper, mercurial, ...</p>
+					<img src="img/git_logo.png" width="10%"/>
+				</section>
+
+
+				<section>
+					<h2>CLI - GUI</h2>
+					<pre>
+<font color="#8AE234"><b>raymond@xps9370</b></font>:<font color="#729FCF"><b>~/git/ihe</b></font>$
+					</pre>
+					<img src="img/sourcetree.png" width="80%"/>
+				</section>
+
+
+
+
+
+<!-- LOCAL -->
+
+<section>
+	<h2>git init</h2>
+	<p>Creates a local git repository, or turns a local directory into a git repository.</p>
+	<pre>
+$ git init ihe
+Initialized empty Git repository in /home/raymond/git/ihe/.git/
+	</pre>
+</section>
+
+
+<section>
+	<h2>git status</h2>
+	<p>Shows the status of the repository</p>
+	<pre>
+$ touch file1.txt
+
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+	<font color="#CC0000">file1.txt</font>
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+	</pre>
+</section>
+
+
+<section>
+	<h2>git add</h2>
+	<p>Puts current working files into the stage (aka index or cache).</p>
+	<pre>
+$ git add file1.txt
+
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+	(use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+	<font color="#4E9A06">new file:   file1.txt</font>
+</pre>
+</section>
+
+
+<section>
+	<h2>git commit</h2>
+	<p>Commits staged changes to a local branch.</p>
+	<pre>
+$ git commit -m &apos;New file1.txt created&apos;
+[master (root-commit) aac0bc8] New file1.txt created
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ 	</pre>
+
+
+<section>
+	<h2>git log</h2>
+	<p>Show ascending list of commits</p>
+	<pre>
+$ git log
+<font color="#C4A000">commit aac0bc8722e123f720f5296b7f78bac5215c76fa (</font><font color="#34E2E2"><b>HEAD -&gt; </b></font><font color="#8AE234"><b>master</b></font><font color="#C4A000">)</font>
+Author: Raymond Nijssen &lt;r.nijssen@terglobo.nl&gt;
+Date:   Thu Feb 28 17:24:55 2019 +0100
+
+	New file1.txt created
+</pre>
+</section>
+
+
+</section>
+<section>
+	<img src="img/xkcd_git_commit.png" width="100%"/>
+</section>
+
+
+<section>
+	<h2>git branch</h2>
+	<p>Creates a new branch</p>
+	<pre>
+$ git branch
+* <font color="#4E9A06">master</font>
+
+$ git branch adding_files
+
+$ git branch
+  adding_files
+* <font color="#4E9A06">master</font>
+	</pre>
+</section>
+
+
+<section>
+	<h2>git checkout</h2>
+	<p>Switches to another branch </p>
+	<pre>
+$ git checkout adding_files
+Switched to branch &apos;adding_files&apos;
+
+$ git branch
+* <font color="#4E9A06">adding_files</font>
+  master
+  </pre>
+</section>
+
+
+<section>
+	<h2>git reset</h2>
+	<p>Undo adds or commits to a certain commit back in time</p>
+	<pre>
+$ touch file2.txt
+$ touch file3.txt
+
+$ git add .
+
+$ git status
+On branch adding_files
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	<font color="#4E9A06">new file:   file2.txt</font>
+	<font color="#4E9A06">new file:   file3.txt</font>
+
+$ git reset aac0bc
+
+$ git status
+On branch adding_files
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+	<font color="#CC0000">file2.txt</font>
+	<font color="#CC0000">file3.txt</font>
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+	</pre>
+</section>
+
+
+<section>
+	<h2>git merge</h2>
+	<p>Merges files from a given branch into the current branch.</p>
+	<pre>
+$ git add .
+
+$ git commit -m &apos;files 2 and 3 added&apos;
+	[adding_files 7b94a0b] files 2 and 3 added
+	 2 files changed, 0 insertions(+), 0 deletions(-)
+	 create mode 100644 file2.txt
+	 create mode 100644 file3.txt
+
+$ git checkout master
+Switched to branch &apos;master&apos;
+
+$ git merge adding_files
+Updating aac0bc8..7b94a0b
+Fast-forward
+ file2.txt | 0
+ file3.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+$ ll
+total 12
+drwxr-xr-x  3 raymond raymond 4096 feb 28 18:39 <font color="#729FCF"><b>.</b></font>/
+drwxr-xr-x 32 raymond raymond 4096 feb 28 15:30 <font color="#729FCF"><b>..</b></font>/
+-rw-r--r--  1 raymond raymond    0 feb 28 17:10 file1.txt
+-rw-r--r--  1 raymond raymond    0 feb 28 18:39 file2.txt
+-rw-r--r--  1 raymond raymond    0 feb 28 18:39 file3.txt
+drwxr-xr-x  8 raymond raymond 4096 feb 28 18:39 <font color="#729FCF"><b>.git</b></font>/
+	</pre>
+</section>
+
+<section>
+	<h2>git merge</h2>
+	<p>Git cannot always automatically merge branches.</p>
+	<img src="img/merge_conflicts_paperclip.jpg" width="70%"/>
+</section>
+
+
+<section>
+	<h2>git diff</h2>
+	<p>Show differences between files.</p>
+	<pre>
+$ git diff
+	</pre>
+</section>
+
+
+<section>
+	<h2>git help</h2>
+	<p>Display help for every individual git command.</p>
+	<pre>$ git help merge</pre>
+	<pre>
+
+GIT-MERGE(1)                   Git Manual                   GIT-MERGE(1)
+
+<b>NAME</b>
+       git-merge - Join two or more development histories together
+
+<b>SYNOPSIS</b>
+       <u style="text-decoration-style:single">git</u> <u style="text-decoration-style:single">merge</u> [-n] [--stat] [--no-commit] [--squash] [--[no-]edit]
+               [-s &lt;strategy&gt;] [-X &lt;strategy-option&gt;] [-S[&lt;keyid&gt;]]
+               [--[no-]allow-unrelated-histories]
+               [--[no-]rerere-autoupdate] [-m &lt;msg&gt;] [&lt;commit&gt;...]
+       <u style="text-decoration-style:single">git</u> <u style="text-decoration-style:single">merge</u> --abort
+       <u style="text-decoration-style:single">git</u> <u style="text-decoration-style:single">merge</u> --continue
+
+<span style="background-color:#FFFFFF"><font color="#300A24"> Manual page git-merge(1) line 1 (press h for help or q to quit)</font></span>
+	</pre>
+	<p>&lt;space&gt; for Next Page</p>
+	<p>&quot;q&quot; to Quit</p>
+</section>
+
+
+<section>
+	<img src="img/handen_uit_de_mouwen.jpeg" width="100%"/>
+</section>
+
+
+<section>
+	<h2>Why Distributed?</h2>
+	<p class="fragment">Knowing who is doing what, where and when?</p>
+	<p class="fragment">Sharing your code</p>
+	<p class="fragment">Changing someone else's code</p>
+	<p class="fragment">Back up</p>
+</section>
+
+
+<section>
+	<h2>git operations</h2>
+	<img src="img/Git_operations.svg" width="80%"/>
+</section>
+
+
+<section>
+	<h2>git remote</h2>
+	<p></p>
+	<pre>
+$ git remote -v
+	</pre>
+</section>
+
+
+<section>
+	<h2>git clone</h2>
+	<p></p>
+	<pre>
+$ git clone
+	</pre>
+</section>
+
+
+<section>
+	<h2>git pull</h2>
+	<p>Retrieving commits from another branch in another repository and merging them into your current branch.</p>
+	<pre>
+$ git pull origin master
+	</pre>
+</section>
+
+
+<section>
+	<h2>git blame</h2>
+	<p>Shows for every line of code in a file who has changed it for the last time.</p>
+	<pre>
+$ git blame file2.txt
+	</pre>
+</section>
+
+
+<section>
+	<h2>git blame</h2>
+	<img src="img/simply_explained_git_blame.jpeg" width="50%"/>
+</section>
+
+
+
+
+<!-- ONLINE -->
+
+
+<section>
+	<h2>Online git providers</h2>
+	<p>Commercial companies offer public and private git repositaries and additional services.</p>
+	<img src="img/gitlab_logo.png" width="20%"/>
+	<img style="margin-left:100px; margin-right:100px;" src="img/bitbucket_logo.png" width="20%"/>
+	<img src="img/github_logo.png" width="20%"/>
+</section>
+
+
+<section>
+	<h2>Extras</h2>
+	<p class="fragment">Good looking website</p>
+	<p class="fragment">User acounts</p>
+	<p class="fragment">Pull requests</p>
+	<p class="fragment">Statistics</p>
+	<p class="fragment">Issue trackers</p>
+	<p class="fragment">Compiling and testing</p>
+</section>
+
+
+<section>
+	<img src="img/dilbert_github.gif" width="100%"/>
+</section>
+
+
+<section>
+	<h2>Next time?</h2>
+	<p class="fragment">git rm</p>
+	<p class="fragment">git tag</p>
+	<p class="fragment">git stash</p>
+	<p class="fragment">git squash</p>
+	<p class="fragment">git cherry-pick</p>
+	<p class="fragment">git prune</p>
+	<p class="fragment">git ...</p>
+</section>
+
+
+<section>
+	<img src="img/handen_uit_de_mouwen.jpeg" width="100%"/>
+</section>
+
+
+<section>
+	<h2>Interesting sources</h2>
+	<ul>
+		<li><a href="https://git-scm.com/doc">https://git-scm.com/doc</li>
+		<li><a href="https://zeroturnaround.com/wp-content/uploads/2016/02/Git-Cheat-Sheet.png">Cheat sheet(s)</li>
+		<li><a href="https://www.youtube.com/watch?v=OZEGnam2M9s&list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW">Dan Gitschooldude</li>
+	</ul>
+</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
