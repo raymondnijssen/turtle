@@ -1,7 +1,9 @@
 import turtle
 
+# create turtle
 t = turtle.Turtle()
 
+# set colors
 colors = ['red', 'blue']
 
 for j in range(8):
